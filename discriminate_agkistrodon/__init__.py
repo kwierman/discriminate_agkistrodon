@@ -9,12 +9,11 @@ import tensorflow as tf
 
 
 
-class discriminate_agkistrodon(Model):
-  logger = logging.getLogger('discriminate_agkistrodon')
+class capetian_modifier(Model):
+  logger = logging.getLogger('capetian_modifier')
 
 
   def __init__(self):
-
 
 
     self.logger.info("Assembling Model")
@@ -81,6 +80,10 @@ class discriminate_agkistrodon(Model):
     layer = Dense(10, activation='softmax',
                   name='predictions')(layer)
     self.logger.info(layer.shape)
+
+
+
+    
 
 
     super(discriminate_agkistrodon, self).__init__(self._input, layer)

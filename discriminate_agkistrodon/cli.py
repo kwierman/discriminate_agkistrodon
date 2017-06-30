@@ -12,7 +12,7 @@ def main(files=None):
     logger = logging.getLogger()
     logger.info("Initializing")
 
-    model = discriminate_agkistrodon.discriminate_agkistrodon()
+    model = discriminate_agkistrodon.capetian_modifier()
 
 if __name__ == "__main__":
     main()
