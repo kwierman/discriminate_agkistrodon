@@ -4,29 +4,23 @@ from keras.models import Model
 
 import logging
 
-import tensorflow as tf
-
-
-
 
 class capetian_modifier(Model):
   logger = logging.getLogger('capetian_modifier')
 
-
   def __init__(self):
 
-
     self.logger.info("Assembling Model")
-    self._input = Input(shape=(1,3,9600,3200))
+    self._input = Input(shape=(1, 3, 9600, 3200))
     self.logger.info(self._input)
     self.logger.info(self._input.shape)
 
-    layer = Conv3D(32, (1, 5, 5), strides=(1, 4, 4),
+    layer = Conv3D(32, (1, 5, 5), strides=(1, 3, 3),
                    activation='relu', padding='same',
                    data_format='channels_first',
                    name='block1_conv1')(self._input)
     self.logger.info(layer.shape)
-    layer = MaxPooling3D((1, 5, 3), strides=(1, 4, 2),
+    layer = MaxPooling3D((1, 5, 3), strides=(1, 5, 3),
                          data_format='channels_first',
                          name='block1_pool')(layer)
     self.logger.info(layer.shape)
@@ -81,12 +75,7 @@ class capetian_modifier(Model):
                   name='predictions')(layer)
     self.logger.info(layer.shape)
 
-
-
-    
-
-
-    super(discriminate_agkistrodon, self).__init__(self._input, layer)
+    super(capetian_modifier, self).__init__(self._input, layer)
     self.logger.info("Compiling Model")
     self.compile(loss='categorical_crossentropy', optimizer='sgd',
                  metrics=['accuracy'])
