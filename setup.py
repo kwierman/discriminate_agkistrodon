@@ -26,6 +26,7 @@ setup(
     entry_points={
         'console_scripts': [
             'discriminate_agkistrodon=discriminate_agkistrodon.cli:main'
+            'draw_capetian_modifier=discriminate_agkistrodon.cli:draw_capetian_modifier'
         ]
     },
     include_package_data=True,

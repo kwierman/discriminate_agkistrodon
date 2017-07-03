@@ -15,8 +15,8 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
-lint:
-	py.test --flake8
+lint clean:
+	pytest --flake8
 
 test:
 	pytest
@@ -28,7 +28,7 @@ docs:
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 
-install: clean
+install: test
 	python setup.py install
 
 uninstall:
