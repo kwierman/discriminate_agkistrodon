@@ -12,6 +12,14 @@ discriminate\_agkistrodon\.cli module
     :undoc-members:
     :show-inheritance:
 
+discriminate\_agkistrodon\.models module
+----------------------------------------
+
+.. automodule:: discriminate_agkistrodon.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 
 Module contents
 ---------------

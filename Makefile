@@ -15,11 +15,8 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
-lint clean:
+test: clean
 	pytest --flake8
-
-test:
-	pytest
 
 docs:
 	rm -f docs/discriminate_agkistrodon.rst

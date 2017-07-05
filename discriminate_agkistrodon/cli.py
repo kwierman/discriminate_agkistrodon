@@ -2,7 +2,6 @@
 
 import click
 import logging
-import sys
 import discriminate_agkistrodon
 from keras.utils import plot_model
 
@@ -12,9 +11,6 @@ def main():
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger()
     logger.info("Initializing")
-
-    model = discriminate_agkistrodon.capetian_modifier()
-
 
 
 @click.command()
