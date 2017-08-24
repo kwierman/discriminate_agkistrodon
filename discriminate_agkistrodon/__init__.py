@@ -5,4 +5,3 @@ Classes defined here are in-place testing prototypes for working with
 building a toolchain for production deep learning analysis.
 
 """
-from models import capetian_modifier

@@ -2,17 +2,17 @@ import pytest
 import sys
 import unittest
 import logging
-from discriminate_agkistrodon import capetian_modifier
+from discriminate_agkistrodon import aerophilatelic_pichi
 
 
-class TestCapetian_Modifier(unittest.TestCase):
+class TestAerophilatelicPichi(unittest.TestCase):
     """
       Intrinsic unit tests of the capetian modifier
       model.
     """
 
     def setUp(self):
-        self.model = capetian_modifier.capetian_modifier()
+        self.model = aerophilatelic_pichi.aerophilatelic_pichi()
 
     def tearDown(self):
         del self.model

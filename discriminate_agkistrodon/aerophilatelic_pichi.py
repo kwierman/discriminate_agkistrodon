@@ -12,13 +12,13 @@ from keras.models import Model
 import logging
 
 
-class capetian_modifier(Model):
-  """ Capetian modifier is the protomodel for FCN using LArNet inspired 
+class aerophilatelic_pichi(Model):
+  """ Capetian modifier is the protomodel for FCN using LArNet inspired
   modules with a fully convolutional backend.
 
   For this prototype, the FC backend was created using 3D upsampling.
 
-  Though it's memory intensive, the ``Attributes`` include links to 
+  Though it's memory intensive, the ``Attributes`` include links to
   each of the network's layers.
 
   Usage:
@@ -27,23 +27,24 @@ class capetian_modifier(Model):
 
   .. code-block:: python
 
-    model = capetian_modifier()
+    model = aerophilatelic_pichi()
     model.compile()
 
   """
 
-  logger = logging.getLogger('capetian_modifier')
+  logger = logging.getLogger('aerophilatelic_pichi')
+  """Logger for this class"""
 
   def __init__(self):
 
     self.logger.info("Assembling Model")
-    self.input = Input(shape=(1, 3, 9600, 3600))
+    self._input = Input(shape=(1, 3, 9600, 3600))
     """keras.layers.Input: keras style input layer"""
 
     conv1 = Conv3D(32, (1, 2, 2), strides=(1, 2, 2),
                    activation='relu', padding='same',
                    data_format='channels_first',
-                   name='block1_conv1')(self.input)
+                   name='block1_conv1')(self._input)
     """keras.layers.convolutional.Conv3D: First block convolution"""
     pool1 = MaxPooling3D((1, 2, 2), strides=(1, 2, 2),
                          data_format='channels_first',
@@ -68,6 +69,7 @@ class capetian_modifier(Model):
     pool3 = MaxPooling3D((1, 2, 2), strides=(1, 2, 2),
                          data_format='channels_first',
                          name='block3_pool')(conv3)
+    """keras.layers.convolutional.Conv3D: Third block convolution"""
 
     # Block 4
     conv4 = Conv3D(256, (1, 2, 2), strides=(1, 2, 2),
@@ -86,16 +88,7 @@ class capetian_modifier(Model):
     pool5 = MaxPooling3D((1, 2, 2), strides=(1, 2, 2), name='block5_pool',
                          data_format='channels_first')(conv5)
 
-    # Block 6, Ze Fully Convolution Bloch
-    conv6 = Conv3D(1024, (1, 2, 2), strides=(1, 2, 2), activation='relu',
-                   padding='same', data_format='channels_first')(pool5)
-    conv7 = Conv3D(10, (1, 2, 2), strides=(1, 2, 2), activation='relu',
-                   padding='same', data_format='channels_first')(conv6)
-    up7 = UpSampling3D(size=(3, 9600 / 3, 3600),
-                       data_format='channels_first')(conv7)
-    """str: Docstring *after* attribute, with type specified."""
-
-    super(capetian_modifier, self).__init__(self.input, up7)
+    super(aerophilatelic_pichi, self).__init__(self._input, up7)
 
   def compile(self):
     """Calls default compile
